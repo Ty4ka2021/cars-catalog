@@ -10,5 +10,11 @@ export const cars = [
     name: 'ewfwef',
     price: 24132132,
     image: 'https://hips.hearstapps.com/hmg-prod/images/2023-mclaren-artura-101-1655218102.jpg?crop=1.00xw:0.847xh;0,0.153xh&resize=1200:*'
+  },
+  {
+    id: 3,
+    name: 'ewfdsfsdfdswef',
+    price: 1132,
+    image: 'https://hips.hearstapps.com/hmg-prod/images/2023-mclaren-artura-101-1655218102.jpg?crop=1.00xw:0.847xh;0,0.153xh&resize=1200:*'
   }
 ]

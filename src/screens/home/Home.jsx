@@ -1,25 +1,22 @@
-import React from 'react';
-import s from './Home.module.css'
+import React, { useMemo } from 'react';
 import { cars } from './cars.data';
+import CarItem from './car-item/CarItem';
 
 const Home = () => {
+
+  const filteredCars = useMemo(
+    () => cars.filter(car => car.price > 24000), []
+  )
+
+
   return (
     <div>
       <h1>Cars catalog</h1>
       <div>
-        {cars.map(car => (
-          <div key={car.id} className={s.item}>
-            <div className={s.image} style={{ backgroundImage: `url(${car.image})` }} />
-            <div className={s.info}>
-              <h2>{car.name}</h2>
-              <p>{new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD'
-              }).format(car.price)}</p>
-              <button>Read more</button>
-            </div>
-          </div>
-        ))}
+        {filteredCars.length ? filteredCars.map(car => (
+          <CarItem key={car.id} car={car} />
+        ))
+          : <p>cars not difaned</p>}
 
       </div>
     </div>
