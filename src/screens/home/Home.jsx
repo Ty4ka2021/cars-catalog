@@ -7,14 +7,20 @@ const Home = () => {
     <div>
       <h1>Cars catalog</h1>
       <div>
-        <div className={s.item}>
-          <div className={s.image} style={{ backgroundImage: "url(/NissanSkylineR34.jpg)" }} />
-          <div className={s.info}>
-            <h2>Car 1</h2>
-            <p>$100 000</p>
-            <button>Read more</button>
+        {cars.map(car => (
+          <div key={car.id} className={s.item}>
+            <div className={s.image} style={{ backgroundImage: `url(${car.image})` }} />
+            <div className={s.info}>
+              <h2>{car.name}</h2>
+              <p>{new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+              }).format(car.price)}</p>
+              <button>Read more</button>
+            </div>
           </div>
-        </div>
+        ))}
+
       </div>
     </div>
   );
