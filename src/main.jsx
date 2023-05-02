@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './assets/styles/global.css'
-import Home from './screens/home/Home.jsx'
+import Router from './ui/Router'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Home />
+    <Router />
   </React.StrictMode>,
 )

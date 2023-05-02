@@ -1,7 +1,8 @@
 import React from 'react';
 import s from './../Home.module.css'
+import { Link } from 'react-router-dom';
 
-const CarItem = ({car}) => {
+const CarItem = ({ car }) => {
   return (
     <div className={s.item}>
       <div className={s.image} style={{ backgroundImage: `url(${car.image})` }} />
@@ -11,7 +12,7 @@ const CarItem = ({car}) => {
           style: 'currency',
           currency: 'USD'
         }).format(car.price)}</p>
-        <button>Read more</button>
+        <Link className='btn' to={`/car/${car.id}`}>Read more</Link>
       </div>
     </div>
   );

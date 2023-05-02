@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { cars as carsData } from './cars.data';
 import CarItem from './car-item/CarItem';
 import CreateCarForm from './create-car-form/CreateCarForm';
+import { CarService } from '../../services/car.service';
 
 const Home = () => {
 
   const [cars, setCars] = useState(carsData)
-  console.log(cars);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await CarService.getAll()
+
+      setCars(data)
+    }
+
+    fetchData()
+  }, [])
+
+
   return (
     <div>
       <h1>Cars catalog</h1>
